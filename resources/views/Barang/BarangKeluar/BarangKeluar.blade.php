@@ -111,10 +111,10 @@
                         <thead>
                             <th class="text-center">No</th>
                             <th class="text-center">Tanggal Faktur</th>
-                            <th width="300px">Nama Barang</th>
+                            <th class="text-center">Nama Barang</th>
                             <th class="">Harga Jual</th>
                             <th class="text-center">Jumlah</th>
-                            <th class="text-center">Sub Total</th>
+                            <th class="">Sub Total</th>
                             <th class="text-center">Admin</th>
                             <th class="text-center">Tanggal Buat</th>
                             <th class="text-center">Cabang</th>
@@ -127,13 +127,13 @@
                                         {{ (($getBarangKeluar->currentPage() - 1) * $getBarangKeluar->perPage()) + $loop->iteration }}
                                     </td>
                                     <td class="text-center" width="128px">{{ Carbon\Carbon::parse( $item->tgl_faktur )->format('d/m/Y') }}</td>
-                                    <td>{{ $item->getStok->nama_barang }}</td>
+                                    <td class="text-center">{{ $item->getStok->nama_Barang }}</td>
                                     <td>{{ 'Rp ' . number_format($item->harga_jual, 0, ',', '.') }}</td>
                                     <td class="text-center">{{ $item->jumlah_beli }}</td>
                                     <td>{{ 'Rp ' . number_format($item->sub_total, 0, ',', '.') }}</td>
                                     <td class="text-center">{{ $item->getUser->name }}</td>
                                     <td class="text-center" width="128px">{{ Carbon\Carbon::parse( $item->tgl_buat )->format('d/m/Y') }}</td>
-                                    <td class="text-center">{{ $item->cabang }}</td>
+                                    <td class="text-center">{{ $item->getStok->cabang }}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-success btn-sm print-nota" data-url="{{ url('/barang-keluar/print') }}/{{ $item->id }}" title="Cetak Nota">
                                             <i class="bi bi-printer"></i>
@@ -154,6 +154,7 @@
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const printButtons = document.querySelectorAll('.print-nota');

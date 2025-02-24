@@ -18,7 +18,7 @@ class BarangKeluar extends Model
  */
 public function getStok(): BelongsTo
 {
-    return $this->belongsTo(pelanggan::class, 'barang_id', 'id');
+    return $this->belongsTo(stok::class, 'barang_id', 'id');
 }
 
 /**

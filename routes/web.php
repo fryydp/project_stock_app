@@ -75,6 +75,7 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
         Route::post('/barang-masuk/edit/{id}', 'update');
 
         Route::get('/barang-masuk/{id}', 'destroy');
+        
 
 });
 
@@ -99,6 +100,7 @@ Route::middleware(['auth', 'ceklevel:superadmin,admin'])->group(function(){
         Route::post('/barang-keluar/edit/{id}', 'update');
 
         Route::get('/barang-keluar/{id}', 'destroy');
+        Route::get('/barang-keluar/print/{id}', 'print');
 
      });
 
